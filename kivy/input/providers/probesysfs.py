@@ -82,7 +82,13 @@ else:
 
         def get_capabilities(self):
             path = os.path.join(self.path, "device", "capabilities", "abs")
-            line = read_line(path)
+            line = "0"
+           
+            try:
+                line = read_line(path)
+            except FileNotFoundError:
+                pass 
+
             capabilities = []
             long_bit = getconf("LONG_BIT")
             for i, word in enumerate(line.split(" ")):
