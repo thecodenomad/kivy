@@ -83,7 +83,6 @@ else:
         def get_capabilities(self):
             path = os.path.join(self.path, "device", "capabilities", "abs")
             line = "0"
-
             try:
                 line = read_line(path)
             except FileNotFoundError:
